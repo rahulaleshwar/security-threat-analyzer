@@ -54,21 +54,26 @@ Before running or deploying the app:
 ## 🚀 Deploy to Google Cloud
 
 ### 1. Enable Required APIs
+
 gcloud services enable run.googleapis.com artifactregistry.googleapis.com firestore.googleapis.com aiplatform.googleapis.com
 
 ### 2. Create Artifact Registry Repository
+
 gcloud artifacts repositories create streamlit-apps \
   --repository-format=docker \
   --location=us \
   --description="Docker repo for Streamlit apps"
 
 ### 3. Build & Push Docker Image
-gcloud auth configure-docker
+
+gcloud auth configure-docker us-docker.pkg.dev
 
 docker build -t us-docker.pkg.dev/YOUR_PROJECT_ID/streamlit-apps/security-threat-analyzer .
+
 docker push us-docker.pkg.dev/YOUR_PROJECT_ID/streamlit-apps/security-threat-analyzer
 
 ### 4. Deploy to Cloud Run
+
 gcloud run deploy security-threat-analyzer \
   --image us-docker.pkg.dev/YOUR_PROJECT_ID/streamlit-apps/security-threat-analyzer \
   --platform managed \
