@@ -1,0 +1,5 @@
+streamlit
+google-cloud-firestore
+vertexai
+markdown2
+xhtml2pdf
