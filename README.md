@@ -59,50 +59,51 @@ gcloud services enable run.googleapis.com artifactregistry.googleapis.com firest
 
 ### 2. Create Artifact Registry Repository
 
+```bash
 gcloud artifacts repositories create streamlit-apps \
   --repository-format=docker \
   --location=us \
   --description="Docker repo for Streamlit apps"
+```
 
 ### 3. Build & Push Docker Image
-
+```bash
 gcloud auth configure-docker us-docker.pkg.dev
 
 docker build -t us-docker.pkg.dev/YOUR_PROJECT_ID/streamlit-apps/security-threat-analyzer .
 
 docker push us-docker.pkg.dev/YOUR_PROJECT_ID/streamlit-apps/security-threat-analyzer
-
+```
 ### 4. Deploy to Cloud Run
-
+```bash
 gcloud run deploy security-threat-analyzer \
   --image us-docker.pkg.dev/YOUR_PROJECT_ID/streamlit-apps/security-threat-analyzer \
   --platform managed \
   --region us-central1 \
   --allow-unauthenticated \
   --port 8501
-
+```
 ---
 
 ## 🧪 Run Locally
 
 ### 1. Clone the Repository
-
+```bash
 git clone https://github.com/rahulaleshwar/security-threat-analyzer.git
-
 cd security-threat-analyzer
-
+```
 ### 2. Install Requirements
-
+```bash
 pip install -r requirements.txt
-
+```
 ### 3. Set Google Project Environment
-
+```bash
 export GOOGLE_CLOUD_PROJECT=YOUR_PROJECT_ID
-
+```
 ### 4. Run the App
-
+```bash
 streamlit run app.py
-
+```
 ---
 
 ## 🙌 Acknowledgments
