@@ -54,9 +54,9 @@ Before running or deploying the app:
 ## 🚀 Deploy to Google Cloud
 
 ### 1. Enable Required APIs
-
+```bash
 gcloud services enable run.googleapis.com artifactregistry.googleapis.com firestore.googleapis.com aiplatform.googleapis.com
-
+```
 ### 2. Create Artifact Registry Repository
 
 ```bash
