@@ -51,6 +51,12 @@ Before running or deploying the app:
 
 ---
 
+## 🔥 Demo
+
+https://github.com/user-attachments/assets/3b5baf78-fee3-4c80-9e91-a621e660d57a
+
+---
+
 ## 🚀 Deploy to Google Cloud
 
 ### 1. Enable Required APIs
