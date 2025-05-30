@@ -66,7 +66,15 @@ gcloud artifacts repositories create streamlit-apps \
   --description="Docker repo for Streamlit apps"
 ```
 
-### 3. Build & Push Docker Image
+### 3. Create Firestore Database
+```bash
+gcloud firestore databases create \
+  --project=YOUR_PROJECT_ID \
+  --region=us-central1 \
+  --database=default
+```
+
+### 4. Build & Push Docker Image
 ```bash
 gcloud auth configure-docker us-docker.pkg.dev
 
@@ -74,7 +82,7 @@ docker build -t us-docker.pkg.dev/YOUR_PROJECT_ID/streamlit-apps/security-threat
 
 docker push us-docker.pkg.dev/YOUR_PROJECT_ID/streamlit-apps/security-threat-analyzer
 ```
-### 4. Deploy to Cloud Run
+### 5. Deploy to Cloud Run
 ```bash
 gcloud run deploy security-threat-analyzer \
   --image us-docker.pkg.dev/YOUR_PROJECT_ID/streamlit-apps/security-threat-analyzer \
